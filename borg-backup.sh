@@ -22,5 +22,7 @@ $BORG create --stats --compression zlib,8       \
     --exclude '*.pyc'                           \
     --exclude '/var/www/owncloud/data/*/thumbnails/'
 
+sleep 1
+
 $BORG prune -v "$REPOSITORY" --prefix $(hostname)- \
     --keep-daily=7 --keep-weekly=4 --keep-monthly=6
