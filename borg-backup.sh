@@ -5,7 +5,7 @@
 BORG="/usr/local/bin/borg-linux64"
 
 REPOSITORY="$USER"@"$HOST":borg/
-export BORG_PASSPHRASE="Your phrase here."
+export BORG_PASSPHRASE="Your key's passphrase here."
 
 if [ ! -x $BORG ]; then
         echo "I can't execute borg."
