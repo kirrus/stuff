@@ -3,6 +3,7 @@
 # borg init --encryption=keyfile $user@$host:borg/
 
 BORG="/usr/local/bin/borg-linux64"
+COMPRESSION_LEVEL="8" # 6 is default. 0-9.
 
 REPOSITORY="$USER"@"$HOST":borg/
 export BORG_PASSPHRASE="Your key's passphrase here."
@@ -13,7 +14,7 @@ if [ ! -x $BORG ]; then
 fi
 
 
-$BORG create --stats --compression zlib,8       \
+$BORG create -v --stats --compression zlib,"$COMPRESSION_LEVEL"       \
     "$REPOSITORY"::$(hostname)-$(date +%Y-%m-%d)    \
     /home                                       \
     /var/www                                    \
